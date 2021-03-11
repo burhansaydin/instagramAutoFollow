@@ -26,13 +26,9 @@ class InstaFollower:
         self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button/div').click()
     def find_followers(self):
         time.sleep(3)
-        pth = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input')
-        pth.send_keys(ACCOUNT_NAME)
+        self.driver.get(f"https://www.instagram.com/{ACCOUNT_NAME}")
         time.sleep(1)
-        pth.send_keys(Keys.ENTER)
-        pth.send_keys(Keys.ENTER)
-        time.sleep(1)
-        followers = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
+        followers = self.driver.find_element_by_xpath('/html/body/div[1]/section/main/div/header/section/ul/li[2]/a')
         followers.click()
         time.sleep(1)
 
